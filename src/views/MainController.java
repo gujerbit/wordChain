@@ -12,6 +12,7 @@ public class MainController {
 	@FXML
 	public TextField txtField;
 	
+	public String[] name;
 	@FXML
 	public void initialize() {
 		System.out.println("메인 레이아웃 생성 완료");
