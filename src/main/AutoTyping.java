@@ -14,11 +14,14 @@ import org.jsoup.select.Elements;
 import com.sun.glass.events.KeyEvent;
 
 import javafx.scene.control.TextField;
+import views.MainController;
 
 public class AutoTyping {
 	private TextField txtField;
 	private String[] name;
 	private Robot robot;
+	
+	private int rk = 0, rkr = 0, rks = 0, rkf = 0, rka = 0, rkq = 0, rkt = 0, rkd = 0, rkx = 0, ro = 0, ror = 0, rof = 0, rod = 0, rj = 0, rjs = 0, rje = 0, rjf = 0, rja = 0, rjq = 0, rjx = 0, rp = 0, rps = 0, rpf = 0, ru = 0, rur = 0, rus = 0;
 
 	public AutoTyping(TextField txtField) {
 		this.txtField = txtField;
@@ -197,31 +200,63 @@ public class AutoTyping {
 				|| txtField.getText().equals("흡") || txtField.getText().equals("흥") || txtField.getText().equals("희")
 				|| txtField.getText().equals("흰") || txtField.getText().equals("히")) {
 			String word = txtField.getText().toString();
-			
-//			robot.mouseMove(633, 727);
-//			robot.mousePress(InputEvent.BUTTON1_MASK);
-//			robot.mouseRelease(InputEvent.BUTTON1_MASK);
+
+			robot.mouseMove(633, 727);
+			robot.mousePress(InputEvent.BUTTON1_MASK);
+			robot.mouseRelease(InputEvent.BUTTON1_MASK);
+			robot.delay(100);
 			word(word);
-//			robot.delay(100);
-//			robot.keyPress(KeyEvent.VK_ENTER);
-//			robot.keyRelease(KeyEvent.VK_ENTER);
-//			robot.mouseMove(750, 1060);
-//			robot.mousePress(InputEvent.BUTTON1_MASK);
-//			robot.mouseRelease(InputEvent.BUTTON1_MASK);
+			robot.delay(500);
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+			robot.delay(100);
+			robot.mouseMove(703, 1060);
+			robot.mousePress(InputEvent.BUTTON1_MASK);
+			robot.mouseRelease(InputEvent.BUTTON1_MASK);
+			robot.delay(10);
+			robot.keyPress(KeyEvent.VK_BACKSPACE);
+			robot.keyRelease(KeyEvent.VK_BACKSPACE);
 		}
 	}
 
 	private void word(String word) {
 		String[] wordChain = new String[41];
-
-		for (int i = name.length - 1; i > 0; i--) {
-
+		int size = name.length - 1;
+		int end = 0;
+		
+		for (int i = name.length - 1; i > end; i--) {
 			if (name[i].toString().subSequence(0, 1).equals(word)) {
+				if(name[i].toString().equals("미나미아소미즈노우마레루사토하쿠스이고원역")) {
+					i += 2;
+					end += 2;
+				}
+				if(name[i].toString().contains("오직우유")) {
+					i += 2;
+					end += 2;
+				}
+				if(name[i].toString().equals("중이병이라도사랑이하고싶어")) {
+					i += 4;
+					end += 4;
+				}
+				if(name[i].toString().equals("치즈명장드빈치체다슬라이스치즈")) {
+					i += 2;
+					end += 2;
+				}
+				if(name[i].contains("커클랜드시그니춰")) {
+					i += 5;
+					end += 5;
+				}
+				if(name[i].toString().contains("키") && name[i].toString().contains("드")) {
+					i += 3;
+					end += 3;
+				}
 				wordChain = name[i].toString().split("");
+				System.out.println(name[i]);
 			}
 		}
 
 		for (int i = 0; i < wordChain.length; i++) {
+			robot.delay(10);
 			if (wordChain[i].toString().equals("가")) {
 				robot.keyPress(KeyEvent.VK_R);
 				robot.keyRelease(KeyEvent.VK_R);
@@ -2142,8 +2177,8 @@ public class AutoTyping {
 			} else if (wordChain[i].toString().equals("얇")) {
 				robot.keyPress(KeyEvent.VK_D);
 				robot.keyRelease(KeyEvent.VK_D);
-				robot.keyPress(KeyEvent.VK_Y);
-				robot.keyRelease(KeyEvent.VK_Y);
+				robot.keyPress(KeyEvent.VK_I);
+				robot.keyRelease(KeyEvent.VK_I);
 				robot.keyPress(KeyEvent.VK_F);
 				robot.keyRelease(KeyEvent.VK_F);
 				robot.keyPress(KeyEvent.VK_Q);
@@ -2830,8 +2865,10 @@ public class AutoTyping {
 			} else if (wordChain[i].toString().equals("첫")) {
 				robot.keyPress(KeyEvent.VK_C);
 				robot.keyRelease(KeyEvent.VK_C);
-				robot.keyPress(KeyEvent.VK_K);
-				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
 			} else if (wordChain[i].toString().equals("청")) {
 				robot.keyPress(KeyEvent.VK_C);
 				robot.keyRelease(KeyEvent.VK_C);
@@ -3903,6 +3940,8 @@ public class AutoTyping {
 				robot.keyRelease(KeyEvent.VK_H);
 				robot.keyPress(KeyEvent.VK_L);
 				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
 			} else if (wordChain[i].toString().equals("팡")) {
 				robot.keyPress(KeyEvent.VK_V);
 				robot.keyRelease(KeyEvent.VK_V);
@@ -4193,19 +4232,1546 @@ public class AutoTyping {
 				robot.keyRelease(KeyEvent.VK_M);
 				robot.keyPress(KeyEvent.VK_Q);
 				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("딕")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("즙")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("숲")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+			} else if (wordChain[i].toString().equals("촉")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("륵")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("져")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+			} else if (wordChain[i].toString().equals("얍")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_I);
+				robot.keyRelease(KeyEvent.VK_I);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("찮")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+			} else if (wordChain[i].toString().equals("쫓")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+			} else if (wordChain[i].toString().equals("활")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("년")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("굴")) {
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("깨")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+			} else if (wordChain[i].toString().equals("론")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("짐")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("승")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("닝")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("툰")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("징")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("옛")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("옳")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+			} else if (wordChain[i].toString().equals("멋")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("쟁")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("푼")) {
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("뷔")) {
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+			} else if (wordChain[i].toString().equals("켓")) {
+				robot.keyPress(KeyEvent.VK_Z);
+				robot.keyRelease(KeyEvent.VK_Z);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("뽐")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("윙")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("킬")) {
+				robot.keyPress(KeyEvent.VK_Z);
+				robot.keyRelease(KeyEvent.VK_Z);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("텐")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("딸")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("꾼")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("먹")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("둠")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("때")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+			} else if (wordChain[i].toString().equals("찍")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("힘")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("렁")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("끼")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+			} else if (wordChain[i].toString().equals("당")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("엎")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+			} else if (wordChain[i].toString().equals("뜨")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+			} else if (wordChain[i].toString().equals("쏘")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+			} else if (wordChain[i].toString().equals("범")) {
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("침")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("귈")) {
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("잖")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+			} else if (wordChain[i].toString().equals("줘")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+			} else if (wordChain[i].toString().equals("룩")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("돼")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+			} else if (wordChain[i].toString().equals("읍")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("색")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("밍")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("능")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("름")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("항")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("름")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("틴")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("닌")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("술")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("즘")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("뒤")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+			} else if (wordChain[i].toString().equals("첨")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("슘")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("뱀")) {
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("짠")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("몇")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+			} else if (wordChain[i].toString().equals("왈")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("쪽")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("캐")) {
+				robot.keyPress(KeyEvent.VK_Z);
+				robot.keyRelease(KeyEvent.VK_Z);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+			} else if (wordChain[i].toString().equals("협")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("룬")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("높")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+			} else if (wordChain[i].toString().equals("좀")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("뭉")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("뚱")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("맵")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("몸")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("밖")) {
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+			} else if (wordChain[i].toString().equals("럽")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("핏")) {
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("튼")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("곱")) {
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("턴")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("립")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("록")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("또")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+			} else if (wordChain[i].toString().equals("억")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("었")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+			} else if (wordChain[i].toString().equals("펜")) {
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("롤")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("칙")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("죠")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_Y);
+				robot.keyRelease(KeyEvent.VK_Y);
+			} else if (wordChain[i].toString().equals("샤")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_I);
+				robot.keyRelease(KeyEvent.VK_I);
+			} else if (wordChain[i].toString().equals("틀")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("웰")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("딩")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("템")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("란")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("찰")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("찹")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("쌀")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("곡")) {
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("늄")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("혁")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("컨")) {
+				robot.keyPress(KeyEvent.VK_Z);
+				robot.keyRelease(KeyEvent.VK_Z);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("큐")) {
+				robot.keyPress(KeyEvent.VK_Z);
+				robot.keyRelease(KeyEvent.VK_Z);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+			} else if (wordChain[i].toString().equals("출")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("막")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("핵")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("늬")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+			} else if (wordChain[i].toString().equals("쇄")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+			} else if (wordChain[i].toString().equals("륨")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("폰")) {
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("윗")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("홍")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("압")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("좌")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+			} else if (wordChain[i].toString().equals("틱")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("취")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+			} else if (wordChain[i].toString().equals("쪼")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+			} else if (wordChain[i].toString().equals("앗")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("랜")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("싶")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+			} else if (wordChain[i].toString().equals("냥")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_I);
+				robot.keyRelease(KeyEvent.VK_I);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("싫")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+			} else if (wordChain[i].toString().equals("혜")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+			} else if (wordChain[i].toString().equals("렛")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("곳")) {
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("납")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("께")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+			} else if (wordChain[i].toString().equals("홀")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("놈")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("텟")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("잉")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("뛰")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+			} else if (wordChain[i].toString().equals("쳐")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+			} else if (wordChain[i].toString().equals("볶")) {
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+			} else if (wordChain[i].toString().equals("겠")) {
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+			} else if (wordChain[i].toString().equals("렘")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("풀")) {
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("펄")) {
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("롭")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("턱")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("슴")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("념")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("짓")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("슨")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("봇")) {
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("컴")) {
+				robot.keyPress(KeyEvent.VK_Z);
+				robot.keyRelease(KeyEvent.VK_Z);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("퓨")) {
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+			} else if (wordChain[i].toString().equals("촬")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("릿")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("잘")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("됐")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+			} else if (wordChain[i].toString().equals("축")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("쓰")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+			} else if (wordChain[i].toString().equals("잎")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+			} else if (wordChain[i].toString().equals("릴")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("켈")) {
+				robot.keyPress(KeyEvent.VK_Z);
+				robot.keyRelease(KeyEvent.VK_Z);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("램")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("캔")) {
+				robot.keyPress(KeyEvent.VK_Z);
+				robot.keyRelease(KeyEvent.VK_Z);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("득")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("묵")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("낌")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("졸")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("핀")) {
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("뎅")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("샷")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_I);
+				robot.keyRelease(KeyEvent.VK_I);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("략")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_I);
+				robot.keyRelease(KeyEvent.VK_I);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("픔")) {
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("령")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("맑")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("핍")) {
+				robot.keyPress(KeyEvent.VK_V);
+				robot.keyRelease(KeyEvent.VK_V);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("틸")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("뭐")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+			} else if (wordChain[i].toString().equals("휴")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+			} else if (wordChain[i].toString().equals("람")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("놓")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+			} else if (wordChain[i].toString().equals("혀")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+			} else if (wordChain[i].toString().equals("량")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_I);
+				robot.keyRelease(KeyEvent.VK_I);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("갯")) {
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("째")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_O);
+				robot.keyRelease(KeyEvent.VK_O);
+			} else if (wordChain[i].toString().equals("녕")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("컷")) {
+				robot.keyPress(KeyEvent.VK_Z);
+				robot.keyRelease(KeyEvent.VK_Z);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("넵")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("튠")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("션")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_U);
+				robot.keyRelease(KeyEvent.VK_U);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("함")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("얄")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_I);
+				robot.keyRelease(KeyEvent.VK_I);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("텀")) {
+				robot.keyPress(KeyEvent.VK_X);
+				robot.keyRelease(KeyEvent.VK_X);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("뮤")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+			} else if (wordChain[i].toString().equals("맛")) {
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+				robot.keyPress(KeyEvent.VK_K);
+				robot.keyRelease(KeyEvent.VK_K);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+			} else if (wordChain[i].toString().equals("칩")) {
+				robot.keyPress(KeyEvent.VK_C);
+				robot.keyRelease(KeyEvent.VK_C);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("쥬")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+			} else if (wordChain[i].toString().equals("윤")) {
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("섭")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+			} else if (wordChain[i].toString().equals("썸")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_A);
+				robot.keyRelease(KeyEvent.VK_A);
+			} else if (wordChain[i].toString().equals("떼")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+			} else if (wordChain[i].toString().equals("킹")) {
+				robot.keyPress(KeyEvent.VK_Z);
+				robot.keyRelease(KeyEvent.VK_Z);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("넌")) {
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("븐")) {
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+				robot.keyPress(KeyEvent.VK_M);
+				robot.keyRelease(KeyEvent.VK_M);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("델")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+			} else if (wordChain[i].toString().equals("헨")) {
+				robot.keyPress(KeyEvent.VK_G);
+				robot.keyRelease(KeyEvent.VK_G);
+				robot.keyPress(KeyEvent.VK_P);
+				robot.keyRelease(KeyEvent.VK_P);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("뷰")) {
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+				robot.keyPress(KeyEvent.VK_B);
+				robot.keyRelease(KeyEvent.VK_B);
+			} else if (wordChain[i].toString().equals("돈")) {
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("준")) {
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyPress(KeyEvent.VK_N);
+				robot.keyRelease(KeyEvent.VK_N);
+				robot.keyPress(KeyEvent.VK_S);
+				robot.keyRelease(KeyEvent.VK_S);
+			} else if (wordChain[i].toString().equals("빅")) {
+				robot.keyPress(KeyEvent.VK_Q);
+				robot.keyRelease(KeyEvent.VK_Q);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("쩍")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_W);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_J);
+				robot.keyRelease(KeyEvent.VK_J);
+				robot.keyPress(KeyEvent.VK_R);
+				robot.keyRelease(KeyEvent.VK_R);
+			} else if (wordChain[i].toString().equals("쇠")) {
+				robot.keyPress(KeyEvent.VK_T);
+				robot.keyRelease(KeyEvent.VK_T);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_L);
+				robot.keyRelease(KeyEvent.VK_L);
+			} else if (wordChain[i].toString().equals("똥")) {
+				robot.keyPress(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_E);
+				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.keyPress(KeyEvent.VK_H);
+				robot.keyRelease(KeyEvent.VK_H);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
+			} else if (wordChain[i].toString().equals("룡")) {
+				robot.keyPress(KeyEvent.VK_F);
+				robot.keyRelease(KeyEvent.VK_F);
+				robot.keyPress(KeyEvent.VK_Y);
+				robot.keyRelease(KeyEvent.VK_Y);
+				robot.keyPress(KeyEvent.VK_D);
+				robot.keyRelease(KeyEvent.VK_D);
 			}
 		}
 	}
 
-	private void mouseCoordinate() {
+	public void mouseCoordinate() {
 		// 마우스 좌표 알아내는 코드
 		PointerInfo mp = MouseInfo.getPointerInfo();
 
 		while (true) {
 			mp = MouseInfo.getPointerInfo();
-
-			System.out.println(mp.getLocation());
 			// 633 727
+			// 703 1061
+			// 1600 245
+			System.out.println(mp.getLocation());
 		}
 	}
 
@@ -4217,8 +5783,8 @@ public class AutoTyping {
 
 			Elements span = doc
 					.select(".w .wiki-heading-content .wiki-table-wrap .wiki-table > tbody > tr > td .wiki-paragraph");
-
-			name = span.text().toString().split(" ");
+			
+			name = span.text().toString().replace("[한방]", "").replace("[2]", "").split(" ");
 
 			for (Element item : span) {
 				Elements w = item.select("span");
