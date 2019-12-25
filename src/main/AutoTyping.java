@@ -21,8 +21,6 @@ public class AutoTyping {
 	private String[] name;
 	private Robot robot;
 	
-	private int rk = 0, rkr = 0, rks = 0, rkf = 0, rka = 0, rkq = 0, rkt = 0, rkd = 0, rkx = 0, ro = 0, ror = 0, rof = 0, rod = 0, rj = 0, rjs = 0, rje = 0, rjf = 0, rja = 0, rjq = 0, rjx = 0, rp = 0, rps = 0, rpf = 0, ru = 0, rur = 0, rus = 0;
-
 	public AutoTyping(TextField txtField) {
 		this.txtField = txtField;
 		wordParser();
