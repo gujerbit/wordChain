@@ -7,7 +7,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.AutoTyping;
 
-
 public class Main extends Application {
 	public AutoTyping auto = null;
 	
